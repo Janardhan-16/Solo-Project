@@ -1,0 +1,183 @@
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #0a192f;
+  font-family: 'Poppins', sans-serif;
+  background-color: #e3f2fd;
+  overflow-x: hidden;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background-image: url('/images/animated-bg.gif'); /* Your animated GIF */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 10s infinite alternate ease-in-out;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(179, 229, 252, 0.4);
+  z-index: 1;
+}
+
+.hero h1, .hero h3 { position: relative; z-index: 2; }
+
+.hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 3rem;
+  color: #0a192f;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.hero h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  max-width: 700px;
+}
+
+/* ===== Activities Section ===== */
+.activities {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  color: #0a192f;
+  margin-bottom: 30px;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 40px;
+}
+
+/* ===== Cards Floating Animation ===== */
+.box {
+  background-color: #0077B6;
+  color: #ffffff;
+  border-radius: 15px;
+  width: 320px;
+  height: 380px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  animation: float 4s ease-in-out infinite;
+}
+
+.box:nth-child(1) { animation-delay: 0s; }
+.box:nth-child(2) { animation-delay: 1s; }
+.box:nth-child(3) { animation-delay: 2s; }
+
+.box:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 3px solid #ffd700;
+}
+
+.box h2 { font-family: 'Merriweather', serif; font-size: 1.4rem; margin-bottom: 10px; color: #ffd700; }
+.box p { font-size: 0.95rem; line-height: 1.5; color: #f1f1f1; }
+
+/* ===== Tour Guide Card ===== */
+.tour-guide {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.guide-card {
+  background-color: #deedf8;
+  width: 600px;
+  max-width: 90%;
+  height: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 10px solid #d8cefe;
+  border-radius: 15px;
+  margin: 0 auto 40px auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+.guide-card img.guide-img {
+  height: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.profile {
+  height: 200px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(4, 4, 50);
+  font-size: 18px;
+  text-align: center;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #b3e5fc;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  color: #0a192f;
+  margin-top: 30px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+@keyframes fadeIn { from {opacity:0; transform: scale(0.95);} to {opacity:1; transform: scale(1);} }
+@keyframes gradientShift { 0% {background-color: #b3e5fc;} 100% {background-color: #a7c7e7;} }
+@keyframes float { 0% {transform: translateY(0px);} 50% {transform: translateY(-10px);} 100% {transform: translateY(0px);} }
+
+.fade-in-up { animation: fadeInUp 1s ease forwards; }
+.fade-in-up.delay { animation-delay: 0.4s; }
+.fade-in { animation: fadeIn 1.2s ease forwards; }
+.fade-in.delay { animation-delay: 0.4s; }
+.fade-in.delay-2 { animation-delay: 0.8s; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .main { flex-direction: column; align-items: center; }
+  .box { width: 85%; margin-bottom: 20px; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero h3 { font-size: 1rem; padding: 0 20px; }
+  .guide-card { flex-direction: column; height: auto; padding: 20px; }
+  .guide-card img.guide-img { height: 150px; margin-bottom: 15px; }
+}
