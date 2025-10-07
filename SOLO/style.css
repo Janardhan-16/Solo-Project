@@ -14,7 +14,7 @@ body {
 
 /* ===== Hero Section ===== */
 .hero {
-  background-image: url('/images/animated-bg.gif'); /* Your animated GIF */
+  background-image: url('images/animated-bg.gif'); /* Your animated GIF */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -181,3 +181,4 @@ footer {
   .guide-card { flex-direction: column; height: auto; padding: 20px; }
   .guide-card img.guide-img { height: 150px; margin-bottom: 15px; }
 }
+
